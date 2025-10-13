@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation and Refunds Policy - Aryaflow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 0;
+        }
+
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #16a34a;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #16a34a;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #16a34a;
+        }
+
+        .header h1 {
+            color: #16a34a;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1em;
+        }
+        
+        .last-updated {
+            background: #f1f5f9;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #475569;
+            font-size: 0.95em;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            color: #16a34a;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: #334155;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        .section p {
+            color: #475569;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .pricing-box {
+            background: #f8fafc;
+            border-left: 4px solid #16a34a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .pricing-box h4 {
+            color: #1e293b;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            color: #475569;
+        }
+        
+        .pricing-item strong {
+            color: #1e293b;
+        }
+        
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .highlight-box p {
+            color: #92400e;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .info-box p {
+            color: #1e40af;
+            margin: 0;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .contact-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .contact-section p {
+            color: #e0e7ff;
+            margin-bottom: 20px;
+        }
+        
+        .contact-section a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 30px;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-section a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        ul li {
+            color: #475569;
+            margin-bottom: 10px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+            }
+            
+            .pricing-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/" class="navbar-brand">AryaFlow</a>
+            <div class="navbar-links">
+                <a href="/">Home</a>
+                <a href="/aryaflow_contact_us.html">Contact Us</a>
+                <a href="/aryaflow_cancellation_refunds.html">Cancellation & Refunds</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Cancellation and Refunds Policy</h1>
+            <p>Aryaflow Yoga Sessions</p>
+        </div>
+        
+        <div class="last-updated">
+            <strong>Last Updated:</strong> October 13, 2025
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">📋</span> Overview</h2>
+            <p>At Aryaflow, we are committed to providing exceptional yoga sessions and services to help you achieve your wellness goals. This Cancellation and Refunds Policy outlines the terms and conditions regarding cancellations and refunds for our yoga programs and consultation services.</p>
+            <p>Please read this policy carefully before purchasing any of our services. By subscribing to or purchasing any Aryaflow service, you acknowledge that you have read, understood, and agree to be bound by this policy.</p>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🧘</span> Our Services & Pricing</h2>
+            <p>Aryaflow currently offers the following yoga programs and services:</p>
+            
+            <div class="pricing-box">
+                <div class="pricing-item">
+                    <span><strong>Weekend Warrior</strong></span>
+                    <span>₹899 per month</span>
+                </div>
+                <div class="pricing-item">
+                    <span><strong>Professional Plus</strong></span>
+                    <span>₹2,499 per month</span>
+                </div>
+                <div class="pricing-item">
+                    <span><strong>20-Minute Paid Consultation</strong></span>
+                    <span>₹99 per call</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🚫</span> No Refund Policy</h2>
+            <p>Aryaflow maintains a strict no-refund policy for all services. Once a payment has been processed for any of our yoga programs or consultation services, <strong>we do not offer refunds under any circumstances</strong>.</p>
+            
+            <h3>This includes but is not limited to:</h3>
+            <ul>
+                <li>Change of mind after purchase</li>
+                <li>Inability to attend scheduled sessions</li>
+                <li>Personal scheduling conflicts</li>
+                <li>Unused sessions or remaining subscription period</li>
+                <li>Technical issues on the customer's end</li>
+                <li>Dissatisfaction with the service</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>Important:</strong> All sales are final. Please ensure that you are certain about your purchase before completing the payment process.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">💳</span> Consultation Call Credit Policy</h2>
+            <p>While we do not offer cash refunds, we provide a special benefit for customers who purchase our 20-minute paid consultation service:</p>
+            
+            <div class="info-box">
+                <p><strong>The full ₹99 consultation fee is creditable toward any of our paid yoga plans (Weekend Warrior or Professional Plus).</strong></p>
+            </div>
+            
+            <h3>How It Works:</h3>
+            <ul>
+                <li>Purchase a 20-minute consultation for ₹99</li>
+                <li>Complete your consultation session with our yoga expert</li>
+                <li>If you decide to subscribe to either the Weekend Warrior or Professional Plus plan, the full ₹99 will be credited toward your first month's subscription</li>
+                <li>The credit must be applied at the time of subscription purchase</li>
+                <li>This credit cannot be converted to cash or refunded</li>
+            </ul>
+            
+            <p><strong>Please note:</strong> The consultation fee credit is valid only for yoga plan subscriptions and cannot be transferred, exchanged for cash, or refunded.</p>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">✖️</span> Cancellation Policy</h2>
+            <p>You have the freedom to cancel your yoga plan subscription at any time without any penalties or additional charges.</p>
+            
+            <h3>Cancellation Terms:</h3>
+            <ul>
+                <li><strong>Anytime Cancellation:</strong> You may cancel your Weekend Warrior or Professional Plus subscription at any time</li>
+                <li><strong>No Additional Charges:</strong> We will not charge any cancellation fees or penalties</li>
+                <li><strong>No Refunds:</strong> Cancelling your subscription does not entitle you to a refund for the current billing period or any unused portion of your subscription</li>
+                <li><strong>Access Until Period End:</strong> Upon cancellation, you will retain access to your yoga sessions until the end of your current paid billing cycle</li>
+                <li><strong>No Auto-Renewal:</strong> After cancellation, your subscription will not be renewed, and no further charges will be made</li>
+            </ul>
+            
+            <h3>How to Cancel:</h3>
+            <p>To cancel your subscription, simply send an email to our support team with your cancellation request. Please include the following information:</p>
+            <ul>
+                <li>Your full name</li>
+                <li>Email address associated with your account</li>
+                <li>The plan you wish to cancel (Weekend Warrior or Professional Plus)</li>
+                <li>Your preferred cancellation date (immediate or end of billing cycle)</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>Processing Time:</strong> Cancellation requests are typically processed within 24-48 hours. You will receive a confirmation email once your cancellation has been processed.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">⚠️</span> Important Considerations</h2>
+            <p>Before purchasing any of our services, please consider the following:</p>
+            <ul>
+                <li>Ensure you have reviewed the program details, schedule, and requirements</li>
+                <li>Confirm that you can commit to the program duration</li>
+                <li>Verify that the pricing and billing cycle work for your budget</li>
+                <li>Take advantage of our ₹99 consultation to discuss your needs before committing to a full program</li>
+                <li>Ask any questions you may have before making your purchase</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">📜</span> Policy Updates</h2>
+            <p>Aryaflow reserves the right to modify this Cancellation and Refunds Policy at any time. Any changes will be effective immediately upon posting on our website. We encourage you to review this policy periodically. Your continued use of our services after any modifications constitutes your acceptance of the updated policy.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h3>Need Help?</h3>
+            <p>If you have any questions about our Cancellation and Refunds Policy or need assistance with your subscription, please don't hesitate to reach out to us.</p>
+            <a href="/aryaflow_contact_us.html">Contact Support</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Aryaflow</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); min-height: 100vh; padding: 0; }
+    .navbar { background: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+    .navbar-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+    .navbar-brand { font-size: 1.8em; font-weight: bold; color: #16a34a; text-decoration: none; }
+    .navbar-links { display: flex; gap: 2rem; align-items: center; }
+    .navbar-links a { color: #333; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+    .navbar-links a:hover { color: #16a34a; }
+    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .header { text-align: center; color: #16a34a; margin-bottom: 50px; }
+    .header h1 { font-size: 3em; margin-bottom: 15px; font-weight: 700; }
+    .header p { font-size: 1.2em; color: #4b5563; }
+    .content-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+    .contact-form-section { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+    .contact-form-section h2 { color: #16a34a; font-size: 2em; margin-bottom: 10px; }
+    .contact-form-section .subtitle { color: #64748b; margin-bottom: 30px; font-size: 1.05em; }
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; margin-bottom: 8px; color: #334155; font-weight: 600; font-size: 0.95em; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1em; font-family: inherit; transition: all 0.3s ease; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #16a34a; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .submit-btn { width: 100%; padding: 16px; background: #16a34a; color: white; border: none; border-radius: 8px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .submit-btn:hover { transform: translateY(-2px); background: #15803d; box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4); }
+    .contact-info-section { display: flex; flex-direction: column; gap: 20px; }
+    .info-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; }
+    .info-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
+    .info-card-icon { width: 60px; height: 60px; background: #16a34a; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8em; margin-bottom: 20px; }
+    .info-card h3 { color: #1e293b; font-size: 1.4em; margin-bottom: 10px; }
+    .info-card p { color: #64748b; line-height: 1.8; margin-bottom: 8px; }
+    .info-card a { color: #16a34a; text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+    .info-card a:hover { color: #15803d; }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+    .hours-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+    .hours-item:last-child { border-bottom: none; }
+    .hours-day { font-weight: 600; color: #334155; }
+    .hours-time { color: #64748b; }
+    .faq-section { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); grid-column: 1 / -1; }
+    .faq-section h2 { color: #16a34a; font-size: 2em; margin-bottom: 30px; text-align: center; }
+    .faq-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 2px solid #f1f5f9; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { color: #1e293b; font-size: 1.2em; font-weight: 600; margin-bottom: 10px; }
+    .faq-answer { color: #64748b; line-height: 1.8; }
+    @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .header h1 { font-size: 2.5em; } .hours-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .header h1 { font-size: 2em; } .contact-form-section, .info-card, .faq-section { padding: 25px; } }
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="navbar-brand">AryaFlow</a>
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/aryaflow_contact_us.html">Contact Us</a>
+            <a href="/aryaflow_cancellation_refunds.html">Cancellation & Refunds</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h1>Get in Touch</h1>
+        <p>We're here to help you on your yoga journey</p>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <p class="subtitle">Have a question? Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="plans">Yoga Plans & Pricing</option>
+                        <option value="consultation">Book a Consultation</option>
+                        <option value="cancellation">Cancellation Request</option>
+                        <option value="technical">Technical Support</option>
+                        <option value="feedback">Feedback & Suggestions</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-section">
+            <div class="info-card">
+                <div class="info-card-icon">📧</div>
+                <h3>Email Us</h3>
+                <p>For general inquiries and support:</p>
+                <p>aryaflowofficial@gmail.com</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">📞</div>
+                <h3>Call Us</h3>
+                <p>Customer Support:</p>
+                <p>+917909324958</p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #94a3b8;">Available: Mon-Sat, 9:00 AM - 7:00 PM IST</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">⏰</div>
+                <h3>Business Hours</h3>
+                <div class="hours-grid">
+                    <div class="hours-item" style="grid-column: 1 / -1;">
+                        <span class="hours-day">Monday - Friday</span>
+                        <span class="hours-time">9:00 AM - 7:00 PM</span>
+                    </div>
+                    <div class="hours-item" style="grid-column: 1 / -1;">
+                        <span class="hours-day">Saturday</span>
+                        <span class="hours-time">10:00 AM - 5:00 PM</span>
+                    </div>
+                    <div class="hours-item" style="grid-column: 1 / -1;">
+                        <span class="hours-day">Sunday</span>
+                        <span class="hours-time">Closed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Google Script Integration -->
+<script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5IquYJ4q2B0_uwdVuGm-o4C9HXuC9zmkoBZQP5g5kqgHlVByiAueJgBT1cQgjgHpqoA/exec';
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = form.querySelector('.submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        try {
+            // Send data to Google Sheets via Google Apps Script
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Important: Google Apps Script requires no-cors
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            // With no-cors mode, we can't read the response
+            // If fetch completes without error, assume success
+            alert('Thank you for contacting AryaFlow! We have received your message and will get back to you within 24 hours.');
+            form.reset();
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('There was an error submitting your message. Please try emailing us directly at aryaflowofficial@gmail.com or call us at +917909324958.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        }
+    });
+</script>
+</body>
+</html>

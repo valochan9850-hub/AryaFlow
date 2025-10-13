@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Aryaflow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 0;
+        }
+
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #16a34a;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #16a34a;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid #16a34a;
+        }
+
+        .header h1 {
+            color: #16a34a;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .effective-date {
+            background: #f0fdf4;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            color: #166534;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border-left: 4px solid #16a34a;
+        }
+
+        .intro-text {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            color: #475569;
+            line-height: 1.8;
+            border-left: 4px solid #16a34a;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #16a34a;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            background: #16a34a;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        
+        .section p {
+            color: #475569;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .section ul {
+            margin: 15px 0 15px 25px;
+            color: #475569;
+        }
+        
+        .section ul li {
+            margin-bottom: 12px;
+            padding-left: 10px;
+        }
+        
+        .highlight-box {
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .highlight-box p {
+            color: #991b1b;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .info-box p {
+            color: #1e40af;
+            margin: 0;
+        }
+        
+        .warning-box {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .warning-box p {
+            color: #166534;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .pricing-table {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-item strong {
+            color: #1e293b;
+        }
+
+        .pricing-amount {
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .section h2 {
+                font-size: 1.4em;
+            }
+            
+            .pricing-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/" class="navbar-brand">AryaFlow</a>
+            <div class="navbar-links">
+                <a href="/">Home</a>
+                <a href="/aryaflow_contact_us.html">Contact Us</a>
+                <a href="/aryaflow_privacy_policy.html">Privacy Policy</a>
+                <a href="/aryaflow_terms_conditions.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Terms & Conditions</h1>
+        </div>
+        
+        <div class="effective-date">
+            <strong>Effective Date:</strong> October 2025
+        </div>
+        
+        <div class="intro-text">
+            Welcome to <strong>Arya Flow</strong>. By accessing or using our website and services, you agree to comply with the following Terms & Conditions.
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">1</span>
+                Service Overview
+            </h2>
+            <p>Arya Flow provides online yoga sessions, consultations, and related wellness programs. All classes and schedules are subject to availability and may be modified at our discretion.</p>
+            
+            <div class="pricing-table">
+                <h3 style="color: #1e293b; margin-bottom: 15px;">Our Current Programs:</h3>
+                <div class="pricing-item">
+                    <strong>Weekend Warrior</strong>
+                    <span class="pricing-amount">₹899/month</span>
+                </div>
+                <div class="pricing-item">
+                    <strong>Professional Plus</strong>
+                    <span class="pricing-amount">₹2,499/month</span>
+                </div>
+                <div class="pricing-item">
+                    <strong>20-Minute Paid Consultation</strong>
+                    <span class="pricing-amount">₹99/call</span>
+                </div>
+            </div>
+            
+            <p>We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without prior notice. Class schedules, instructors, and program content may change based on availability and operational requirements.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">2</span>
+                User Responsibilities
+            </h2>
+            <p>As a user of Aryaflow's services, you agree to the following responsibilities:</p>
+            <ul>
+                <li>Provide accurate personal information while booking consultations.</li>
+                <li>Follow instructor guidance to avoid injuries or health risks.</li>
+                <li>Consult a doctor before participating in any physical activity if you have medical conditions.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>Health & Safety:</strong> Participation in yoga and physical activities is at your own risk. It is your responsibility to ensure you are physically fit to participate in our programs.</p>
+            </div>
+            
+            <p>You must inform your instructor of any pre-existing health conditions, injuries, or physical limitations before starting any yoga program. Failure to disclose relevant health information may result in injury, for which Aryaflow will not be held responsible.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">3</span>
+                Payments & Refunds
+            </h2>
+            <p>Payments for all programs, sessions, or consultations (including Weekend Warrior, Professional Plus, and 20-minute paid consultation) must be paid in full before the service start date. All payments are final.</p>
+            
+            <div class="highlight-box">
+                <p><strong>No Refund Policy:</strong> No refunds, partial or full, will be issued under any circumstances. All sales are final.</p>
+            </div>
+            
+            <p><strong>Consultation Call Credit:</strong> The ₹99 consultation fee is fully creditable toward any paid yoga plan subscription (Weekend Warrior or Professional Plus). This credit:</p>
+            <ul>
+                <li>Must be applied at the time of subscription purchase</li>
+                <li>Cannot be converted to cash or refunded</li>
+                <li>Is valid only for yoga plan subscriptions</li>
+                <li>Cannot be transferred to another person</li>
+            </ul>
+            
+            <p>Rescheduling of sessions may be allowed in advance, subject to availability, but is not guaranteed. Missed sessions without prior notice will not be refunded or rescheduled.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">4</span>
+                Intellectual Property
+            </h2>
+            <p>All content on this website, including text, graphics, and logos, is the property of Arya Flow and may not be reused or copied without permission.</p>
+            
+            <div class="info-box">
+                <p><strong>Copyright Protection:</strong> All materials, including videos, images, written content, class sequences, and program designs are protected by copyright law and are the exclusive property of Aryaflow.</p>
+            </div>
+            
+            <p>You may not:</p>
+            <ul>
+                <li>Record, reproduce, or distribute any class content without written permission</li>
+                <li>Share your login credentials or access with others</li>
+                <li>Use our content for commercial purposes</li>
+                <li>Modify, adapt, or create derivative works from our materials</li>
+            </ul>
+            
+            <p>Unauthorized use of our intellectual property may result in immediate termination of your access and legal action.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">5</span>
+                Limitation of Liability
+            </h2>
+            <p>Arya Flow and its instructors are not responsible for any injuries sustained during yoga sessions. Participation is voluntary and at your own risk.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Liability Waiver:</strong> By participating in Aryaflow programs, you acknowledge that yoga and physical exercise involve inherent risks, and you voluntarily assume all risks associated with participation.</p>
+            </div>
+            
+            <p>Aryaflow, its owners, instructors, and affiliates shall not be liable for:</p>
+            <ul>
+                <li>Any injuries, illness, or health complications arising from participation</li>
+                <li>Any loss or damage to personal property</li>
+                <li>Technical issues, including internet connectivity problems</li>
+                <li>Unavailability of services due to unforeseen circumstances</li>
+                <li>Any indirect, incidental, or consequential damages</li>
+            </ul>
+            
+            <p>You agree to release and hold harmless Aryaflow from any claims, demands, or causes of action arising from your participation in our programs.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">6</span>
+                Modifications
+            </h2>
+            <p>Arya Flow reserves the right to modify or discontinue services, pricing, or schedules at any time without prior notice.</p>
+            
+            <div class="info-box">
+                <p><strong>Service Changes:</strong> We may update, modify, or discontinue any aspect of our services including class schedules, program content, instructors, and pricing structures.</p>
+            </div>
+            
+            <p>In the event of significant changes to these Terms & Conditions, we will notify users via email or through a prominent notice on our website. Your continued use of our services after such modifications constitutes acceptance of the updated terms.</p>
+            
+            <p>We recommend reviewing these Terms & Conditions periodically to stay informed of any changes.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">7</span>
+                Governing Law
+            </h2>
+            <p>These Terms are governed by and construed in accordance with the laws of India. Any disputes shall be subject to the jurisdiction of courts in Madhya Pradesh, India.</p>
+            
+            <div class="warning-box">
+                <p><strong>Dispute Resolution:</strong> All disputes, claims, or controversies arising from or relating to these Terms & Conditions or your use of Aryaflow services shall be resolved through binding arbitration in accordance with Indian law.</p>
+            </div>
+            
+            <p>By using our services, you agree that any legal action or proceeding related to your access to or use of Aryaflow shall be brought exclusively in the courts located in Madhya Pradesh, India.</p>
+            
+            <p>If any provision of these Terms & Conditions is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">8</span>
+                Contact Information
+            </h2>
+            <p>If you have any questions or concerns regarding these Terms & Conditions, please contact us:</p>
+            
+            <div class="info-box">
+                <p><strong>Email:</strong> aryaflowofficial@gmail.com</p>
+                <p style="margin-top: 10px;"><strong>Response Time:</strong> We typically respond to all inquiries within 24-48 hours during business days.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>
+                <span class="section-number">9</span>
+                Acceptance of Terms
+            </h2>
+            <p>By accessing or using Aryaflow's website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Agreement:</strong> Your continued use of our services constitutes acceptance of these terms. If you do not agree with any part of these Terms & Conditions, you must discontinue use of our services immediately.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Aryaflow. All rights reserved.</p>
+            <p style="margin-top: 10px;">By using our services, you agree to these Terms & Conditions.</p>
+        </div>
+    </div>
+</body>
+</html>
