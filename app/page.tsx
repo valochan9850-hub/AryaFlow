@@ -300,9 +300,9 @@ export default function WellnessLanding() {
               <RazorpayPayment amount={99}>
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-green-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200"
+                  className="w-full sm:w-auto bg-green-600 px-8 sm:px-12 py-5 sm:py-6 text-lg sm:text-xl lg:text-2xl font-bold text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200 shadow-lg"
                 >
-                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  <Play className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
                   Reserve My Spot - ₹99
                 </Button>
               </RazorpayPayment>
