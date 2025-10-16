@@ -30,6 +30,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+import RazorpayPayment from "@/components/RazorpayPayment";
 
 export default function WellnessLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -236,9 +237,11 @@ export default function WellnessLanding() {
             </nav>
 
             <div className="hidden md:block">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Join Free Webinar
-              </Button>
+              <RazorpayPayment
+                amount={99}
+                buttonText="Join Webinar - ₹99"
+                buttonClassName="bg-primary text-primary-foreground hover:bg-primary/90"
+              />
             </div>
 
             <div className="md:hidden">
@@ -259,9 +262,11 @@ export default function WellnessLanding() {
                 <a href="#testimonials" className="block px-3 py-2 text-foreground hover:text-primary">Success Stories</a>
                 <a href="#faq" className="block px-3 py-2 text-foreground hover:text-primary">FAQ</a>
                 <div className="px-3 py-2">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    Join Free Webinar
-                  </Button>
+                  <RazorpayPayment
+                    amount={99}
+                    buttonText="Join Webinar - ₹99"
+                    buttonClassName="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  />
                 </div>
               </div>
             </div>
@@ -292,13 +297,15 @@ export default function WellnessLanding() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto bg-green-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200"
-              >
-                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Reserve My Spot
-              </Button>
+              <RazorpayPayment amount={99}>
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-green-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200"
+                >
+                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  Reserve My Spot - ₹99
+                </Button>
+              </RazorpayPayment>
             </div>
 
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-muted-foreground">
@@ -796,11 +803,12 @@ export default function WellnessLanding() {
                 </div>
 
                 <div className="space-y-4">
-                  
-                  <Button className="w-full bg-green-600 py-3 text-lg text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200">
-                    Secure My Spot Now
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
+                  <RazorpayPayment amount={99}>
+                    <Button className="w-full bg-green-600 py-3 text-lg text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200">
+                      Secure My Spot Now
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </RazorpayPayment>
                 </div>
 
                 <p className="mt-4 text-xs text-green-600">
