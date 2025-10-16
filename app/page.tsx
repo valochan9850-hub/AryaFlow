@@ -431,6 +431,19 @@ export default function WellnessLanding() {
               </Card>
             ))}
           </div>
+
+          {/* CTA Button below learning cards */}
+          <div className="mt-12 flex justify-center">
+            <RazorpayPayment amount={99}>
+              <Button
+                size="lg"
+                className="bg-green-600 px-10 py-5 text-xl font-bold text-white hover:bg-green-700 hover:scale-105 transform transition-all duration-200 shadow-lg"
+              >
+                Register Now - ₹99
+                <ArrowRight className="ml-2 h-6 w-6" />
+              </Button>
+            </RazorpayPayment>
+          </div>
         </div>
       </section>
 
