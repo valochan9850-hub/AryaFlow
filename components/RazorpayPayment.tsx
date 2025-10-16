@@ -13,11 +13,32 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
+import { trackInitiateCheckout, trackLead } from "@/components/FacebookPixel";
 
 declare global {
   interface Window {
     Razorpay: any;
+    fbq: any;
   }
+}
+
+// Helper to get Facebook browser ID (fbp) from cookie
+function getFbp(): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(/_fbp=([^;]+)/);
+  return match ? match[1] : undefined;
+}
+
+// Helper to get Facebook click ID (fbc) from cookie
+function getFbc(): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(/_fbc=([^;]+)/);
+  return match ? match[1] : undefined;
+}
+
+// Generate event ID for deduplication between Pixel and CAPI
+function generateEventId(): string {
+  return `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 }
 
 interface RazorpayPaymentProps {
@@ -87,6 +108,24 @@ export default function RazorpayPayment({
 
     setIsProcessing(true);
 
+    // Generate event ID for deduplication between client-side Pixel and server-side CAPI
+    const purchaseEventId = generateEventId();
+
+    // Track that user initiated checkout
+    trackInitiateCheckout({
+      value: amount / 100, // Convert paise to rupees
+      currency: "INR",
+      content_name: "Wellness Webinar Registration",
+      content_category: "Webinar",
+    });
+
+    // Track lead (user provided contact information)
+    trackLead({
+      content_name: "Wellness Webinar Registration",
+      value: amount / 100,
+      currency: "INR",
+    });
+
     try {
       // Load Razorpay script
       const scriptLoaded = await loadRazorpayScript();
@@ -138,6 +177,10 @@ export default function RazorpayPayment({
         },
         handler: async function (response: any) {
           try {
+            // Get Facebook identifiers for server-side tracking
+            const fbp = getFbp();
+            const fbc = getFbc();
+
             // Verify payment
             const verifyResponse = await fetch("/api/razorpay/verify-payment", {
               method: "POST",
@@ -149,12 +192,24 @@ export default function RazorpayPayment({
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
                 userDetails: userDetails,
+                amount: orderData.amount, // Send amount for CAPI tracking
+                fbp: fbp, // Facebook browser ID
+                fbc: fbc, // Facebook click ID
+                eventId: purchaseEventId, // For deduplication
               }),
             });
 
             const verifyData = await verifyResponse.json();
 
             if (verifyResponse.ok && verifyData.success) {
+              // Track successful purchase (client-side with same event ID)
+              if (window.fbq) {
+                window.fbq('track', 'Purchase', {
+                  value: amount / 100,
+                  currency: 'INR'
+                }, { eventID: purchaseEventId });
+              }
+
               alert("Payment successful! Check your email for webinar details.");
               setIsDialogOpen(false);
               setUserDetails({ name: "", email: "", phone: "" });

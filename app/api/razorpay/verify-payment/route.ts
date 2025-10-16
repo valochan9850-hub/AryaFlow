@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
+import { trackServerPurchase } from "@/lib/facebook-capi";
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,6 +17,10 @@ export async function POST(request: NextRequest) {
       razorpay_payment_id,
       razorpay_signature,
       userDetails,
+      amount,
+      fbp,
+      fbc,
+      eventId,
     } = await request.json();
 
     // Validate required fields
@@ -50,6 +55,43 @@ export async function POST(request: NextRequest) {
 
       // TODO: Add your database logic here
       // Example: await saveRegistration({ userDetails, paymentId: razorpay_payment_id });
+
+      // Track purchase with Facebook Conversion API (server-side)
+      if (amount && userDetails) {
+        const referer = request.headers.get("referer") || "https://aryaflow.com";
+
+        // Get client information from request headers
+        const clientIpAddress =
+          request.headers.get("x-forwarded-for")?.split(",")[0] ||
+          request.headers.get("x-real-ip");
+
+        const clientUserAgent = request.headers.get("user-agent");
+
+        // Parse name into first and last name
+        const nameParts = (userDetails.name || "").split(" ");
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(" ");
+
+        await trackServerPurchase(
+          {
+            email: userDetails.email,
+            phone: userDetails.phone,
+            firstName: firstName,
+            lastName: lastName,
+            country: "in", // India
+            clientIpAddress: clientIpAddress,
+            clientUserAgent: clientUserAgent,
+            fbp: fbp, // Facebook browser ID from cookie
+            fbc: fbc, // Facebook click ID from URL
+            externalId: razorpay_payment_id, // Use payment ID as external ID
+          },
+          amount / 100, // Convert paise to rupees
+          "INR",
+          razorpay_order_id,
+          referer,
+          eventId // Use same event ID for deduplication with client-side pixel
+        );
+      }
 
       return NextResponse.json({
         success: true,
