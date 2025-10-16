@@ -63,9 +63,10 @@ export async function POST(request: NextRequest) {
         // Get client information from request headers
         const clientIpAddress =
           request.headers.get("x-forwarded-for")?.split(",")[0] ||
-          request.headers.get("x-real-ip");
+          request.headers.get("x-real-ip") ||
+          undefined;
 
-        const clientUserAgent = request.headers.get("user-agent");
+        const clientUserAgent = request.headers.get("user-agent") || undefined;
 
         // Parse name into first and last name
         const nameParts = (userDetails.name || "").split(" ");
