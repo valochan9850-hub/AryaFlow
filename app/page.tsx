@@ -292,9 +292,23 @@ export default function WellnessLanding() {
               <span className="block sm:inline">Without Counting Calories</span>
             </h1>
 
-            <p className="mx-auto mb-6 sm:mb-8 max-w-xl lg:max-w-2xl xl:max-w-3xl text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground px-4 sm:px-0">
+            <p className="mx-auto mb-4 sm:mb-6 max-w-xl lg:max-w-2xl xl:max-w-3xl text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground px-4 sm:px-0">
               Join the 60-minute Yoga Webinar that's helping busy people lose weight, sleep better, and feel calm again.
             </p>
+
+            <div className="mx-auto mb-6 sm:mb-8 max-w-xl px-4 sm:px-0">
+              <div className="inline-flex items-center justify-center bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800 rounded-lg px-6 py-3">
+                <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-green-700 dark:text-green-400 mr-2" />
+                <span className="text-lg sm:text-xl font-bold text-green-700 dark:text-green-400">
+                  24th October
+                </span>
+                <span className="mx-3 text-green-400">|</span>
+                <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-green-700 dark:text-green-400 mr-2" />
+                <span className="text-lg sm:text-xl font-bold text-green-700 dark:text-green-400">
+                  9 PM
+                </span>
+              </div>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
               <RazorpayPayment amount={99}>

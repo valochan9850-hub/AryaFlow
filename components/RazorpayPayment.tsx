@@ -260,15 +260,13 @@ export default function RazorpayPayment({
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Register for Webinar</DialogTitle>
-            <DialogDescription>
-              <div className="space-y-2">
-                <div className="text-lg font-semibold text-foreground">
-                  📅 24th October | ⏰ 9 PM
-                </div>
-                <div>
-                  Enter your details to complete registration. Payment: ₹{amount}
-                </div>
+            <div className="mt-3 mb-2 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+              <div className="text-lg font-bold text-green-700 dark:text-green-400 text-center">
+                📅 24th October | ⏰ 9 PM
               </div>
+            </div>
+            <DialogDescription>
+              Enter your details to complete registration. Payment: ₹{amount}
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
