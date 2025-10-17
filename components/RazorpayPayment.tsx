@@ -205,8 +205,15 @@ export default function RazorpayPayment({
               // Track successful purchase (client-side with same event ID)
               if (window.fbq) {
                 window.fbq('track', 'Purchase', {
-                  value: amount / 100,
-                  currency: 'INR'
+                  value: 99,
+                  currency: 'INR',
+                  contents: [
+                    {
+                      id: 'Webinar99',
+                      quantity: 1
+                    }
+                  ],
+                  content_ids: 'Product',
                 }, { eventID: purchaseEventId });
               }
 
@@ -254,7 +261,14 @@ export default function RazorpayPayment({
           <DialogHeader>
             <DialogTitle>Register for Webinar</DialogTitle>
             <DialogDescription>
-              Enter your details to complete registration. Payment: ₹{amount}
+              <div className="space-y-2">
+                <div className="text-lg font-semibold text-foreground">
+                  📅 24th October | ⏰ 9 PM
+                </div>
+                <div>
+                  Enter your details to complete registration. Payment: ₹{amount}
+                </div>
+              </div>
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
